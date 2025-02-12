@@ -16,16 +16,16 @@ Este é um projeto monorepo contendo:
 - PostgreSQL
 
 
-## Começando
+# Começando
 
-1. Clone o repositório:
+## 1. Clone o repositório:
 
 git clone https://github.com/AdelmoMaximo/gestao-usuarios.git
 cd gestao-usuarios
 
 
 
-2. Instale as dependências:
+## 2. Instale as dependências:
 
 # Backend
 cd backend
@@ -35,9 +35,9 @@ npm install
 cd ../frontend
 npm install
 
-3. Inicie o projeto
+## 3. Inicie o projeto
    
-#Backend
+# Backend
    cd backend
    npm run start:dev
 
