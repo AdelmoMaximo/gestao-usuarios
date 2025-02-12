@@ -1,51 +1,130 @@
-## Gestão de Usuários
 
-Sistema de gestão de usuários com frontend em React e backend em NestJS.
+# Projeto - Backend e Frontend com Docker
 
-## Estrutura do Projeto
+Este repositório contém dois componentes principais: **Backend** e **Frontend**. Ambos são configurados e executados usando Docker. A seguir estão as instruções para configurar e rodar o projeto.
 
-Este é um projeto monorepo contendo:
+## Estrutura do Repositório
 
-- `/backend` - API REST em NestJS
-- `/frontend` - Interface de usuário em React
+```
+/backend
+/frontend
+docker-compose.yml
+```
 
-# Pré-requisitos
+- **/backend**: Contém a aplicação backend.
+- **/frontend**: Contém a aplicação frontend.
+- **docker-compose.yml**: Arquivo de configuração do Docker para orquestrar os containers.
 
-- Node.js 18+
-- npm ou yarn
-- PostgreSQL
+## Pré-requisitos
 
+Antes de começar, é necessário ter o Docker e o Docker Compose instalados em sua máquina.
 
-## Começando
+### Para Linux (Ubuntu/Debian)
 
-## 1. Clone o repositório:
+Instale o Docker e o Docker Compose executando os seguintes comandos. Se você não for o usuário root, adicione `sudo` antes dos comandos conforme necessário.
 
-git clone https://github.com/AdelmoMaximo/gestao-usuarios.git
+```bash
+sudo apt update
+sudo apt install docker.io
+sudo apt install docker-compose
+```
 
-cd gestao-usuarios
+### Para Windows
 
+1. Baixe e instale o [Docker Desktop para Windows](https://www.docker.com/products/docker-desktop).
+2. Após a instalação, reinicie o computador e abra o Docker Desktop.
+3. Certifique-se de que o Docker está em funcionamento ao verificar se o ícone do Docker está ativo na bandeja do sistema.
 
+## Passos para Executar o Projeto
 
-## 2. Instale as dependências:
+1. **Clone o Repositório**
 
-## Backend
-cd backend
+   Primeiro, clone o repositório para a sua máquina local.
 
-npm install
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   cd <NOME_DO_REPOSITORIO>
+   ```
 
-## Frontend
-cd frontend
+2. **Construir e Iniciar os Containers**
 
-npm install
+   No diretório raiz do repositório, onde está localizado o arquivo `docker-compose.yml`, execute o seguinte comando para construir e iniciar os containers.
 
-## 3. Inicie o projeto
-   
-## Backend
-   cd backend
-   
-   npm run start
+   **No Linux/Unix/MacOS**:
 
-## Frontend (em outro terminal)
-   cd frontend
-   
-   npm run dev
+   Se você for um usuário não-root, é necessário adicionar `sudo` antes do comando Docker.
+
+   ```bash
+   sudo docker-compose up --build
+   ```
+
+   **No Windows**:
+
+   O Docker Desktop geralmente fornece permissões necessárias, então não é necessário adicionar `sudo` no Windows. Use o comando:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   Este comando vai:
+   - Construir as imagens do Docker para o backend e frontend.
+   - Iniciar os containers necessários para ambos os componentes.
+
+3. **Acessar a Aplicação**
+
+   - O backend estará disponível no endereço [http://localhost:5000](http://localhost:5000) (ou na porta configurada no seu `docker-compose.yml`).
+   - O frontend estará disponível no endereço [http://localhost:3000](http://localhost:3000) (ou na porta configurada no seu `docker-compose.yml`).
+
+4. **Parar os Containers**
+
+   Para parar os containers em execução, use o comando:
+
+   ```bash
+   docker-compose down
+   ```
+
+   Isso vai parar e remover os containers, mas manter as imagens criadas para uma execução futura.
+
+5. **Ver Logs dos Containers**
+
+   Para verificar os logs de execução dos containers, utilize o comando:
+
+   ```bash
+   docker-compose logs
+   ```
+
+   Se você quiser logs de um container específico, por exemplo, o backend:
+
+   ```bash
+   docker-compose logs backend
+   ```
+
+## Docker Compose
+
+O arquivo `docker-compose.yml` contém a configuração para construir e executar os containers do backend e frontend. Aqui está um exemplo básico de como ele pode ser configurado:
+
+```yaml
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
+```
+
+## Contribuições
+
+Se você desejar contribuir para este projeto, faça um **fork** do repositório, crie uma nova branch, faça as alterações e envie um **pull request**.
