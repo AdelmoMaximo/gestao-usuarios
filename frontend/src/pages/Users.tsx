@@ -208,7 +208,7 @@ export function Users() {
                         <img
                           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-SxxaDNVQXxRhG0ots9rFZCChX5IWkG.png"
                           alt="Nenhum resultado encontrado"
-                          className="w-72 h-72 mb-4"
+                          className="w-72 h-72 object-cover mb-4"
                         />
                         <h2 className="text-xl font-semibold text-gray-900 mb-2">Nenhum Resultado Encontrado</h2>
                         <p className="text-gray-500 text-center max-w-md">

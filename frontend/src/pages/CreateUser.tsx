@@ -271,7 +271,7 @@ export function CreateUser() {
                                 onBlur={field.onBlur}
                                 name="matricula"
                               />
-                              <p className="text-xs text-gray-500 text-right">Mín. 4 letras • Máx. 10 Caracteres</p>
+                              <p className="text-xs text-gray-500 text-right">Min. 4 numeros • Máx. 10 Caracteres</p>
                             </div>
                           )}
                         />
