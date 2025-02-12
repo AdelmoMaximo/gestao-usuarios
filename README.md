@@ -125,6 +125,3 @@ networks:
     driver: bridge
 ```
 
-## Contribuições
-
-Se você desejar contribuir para este projeto, faça um **fork** do repositório, crie uma nova branch, faça as alterações e envie um **pull request**.
