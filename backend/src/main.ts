@@ -8,7 +8,7 @@ async function bootstrap() {
 
   // Configuração do CORS
   app.enableCors({
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173"], // Origens permitidas (Vite default)
+    origin: ["http://localhost:5000", "http://127.0.0.1:5000"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
     credentials: true, // Permite envio de cookies e credenciais
     allowedHeaders: ["Content-Type", "Authorization"],

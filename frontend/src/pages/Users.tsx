@@ -41,7 +41,6 @@ export function Users() {
   // Paginação
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 15
-  const [totalPages, setTotalPages] = useState(1)
 
   const fetchUsers = async () => {
     try {
@@ -49,7 +48,6 @@ export function Users() {
       setError(null)
       const fetchedUsers = await getUsers()
       setUsers(fetchedUsers)
-      setTotalPages(Math.ceil(fetchedUsers.length / itemsPerPage))
     } catch (err) {
       setError("Falha ao buscar usuários")
     } finally {
@@ -59,7 +57,7 @@ export function Users() {
 
   useEffect(() => {
     fetchUsers()
-  }, []) //Fixed: Added empty dependency array to useEffect
+  }, [])
 
   // Filtra os usuários com base na pesquisa
   const filteredUsers = users.filter((user) => user.nome.toLowerCase().includes(searchQuery.toLowerCase()))

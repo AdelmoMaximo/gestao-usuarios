@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: gestao_usuarios
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://user:password@postgres:5432/gestao_usuarios
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+

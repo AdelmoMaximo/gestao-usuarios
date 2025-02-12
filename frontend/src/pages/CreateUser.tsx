@@ -226,7 +226,7 @@ export function CreateUser() {
                 <FormField
                   control={form.control}
                   name="nome"
-                  render={({ field }) => (
+                  render={({ }) => (
                     <FormItem>
                       <FormControl>
                         <Controller
@@ -254,7 +254,7 @@ export function CreateUser() {
                 <FormField
                   control={form.control}
                   name="matricula"
-                  render={({ field }) => (
+                  render={({ }) => (
                     <FormItem>
                       <FormControl>
                         <Controller
@@ -282,7 +282,7 @@ export function CreateUser() {
                 <FormField
                   control={form.control}
                   name="email"
-                  render={({ field }) => (
+                  render={({ }) => (
                     <FormItem>
                       <FormControl>
                         <Controller
@@ -319,7 +319,7 @@ export function CreateUser() {
                 <FormField
                   control={form.control}
                   name="senha"
-                  render={({ field }) => (
+                  render={({ }) => (
                     <FormItem>
                       <FormControl>
                         <div className="relative">
@@ -357,7 +357,7 @@ export function CreateUser() {
                 <FormField
                   control={form.control}
                   name="confirmPassword"
-                  render={({ field }) => (
+                  render={({ }) => (
                     <FormItem>
                       <FormControl>
                         <div className="relative">

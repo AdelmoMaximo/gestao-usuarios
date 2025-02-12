@@ -257,7 +257,7 @@ export function EditUser() {
                 <FormField
                   control={form.control}
                   name="nome"
-                  render={({ field }) => (
+                  render={() => (
                     <FormItem>
                       <FormControl>
                         <Controller
@@ -269,7 +269,7 @@ export function EditUser() {
                                 label="Nome Completo"
                                 error={!!fieldState.error}
                                 errorMessage={fieldState.error?.message}
-                                value={field.value}
+                                value={field.value ?? ""}
                                 onChange={field.onChange}
                                 onBlur={field.onBlur}
                                 name="nome"
@@ -285,7 +285,7 @@ export function EditUser() {
                 <FormField
                   control={form.control}
                   name="matricula"
-                  render={({ field }) => (
+                  render={() => (
                     <FormItem>
                       <FormControl>
                         <Controller
@@ -297,7 +297,7 @@ export function EditUser() {
                                 label="Matrícula"
                                 error={!!fieldState.error}
                                 errorMessage={fieldState.error?.message}
-                                value={field.value}
+                                value={field.value ?? ""}
                                 onChange={field.onChange}
                                 onBlur={field.onBlur}
                                 name="matricula"
@@ -313,7 +313,7 @@ export function EditUser() {
                 <FormField
                   control={form.control}
                   name="email"
-                  render={({ field }) => (
+                  render={() => (
                     <FormItem>
                       <FormControl>
                         <Controller
@@ -325,7 +325,7 @@ export function EditUser() {
                                 label="E-mail"
                                 error={!!fieldState.error}
                                 errorMessage={fieldState.error?.message}
-                                value={field.value}
+                                value={field.value ?? ""}
                                 onChange={field.onChange}
                                 onBlur={field.onBlur}
                                 type="email"
@@ -350,7 +350,7 @@ export function EditUser() {
                 <FormField
                   control={form.control}
                   name="senha"
-                  render={({ field }) => (
+                  render={() => (
                     <FormItem>
                       <FormControl>
                         <div className="relative">
@@ -363,11 +363,11 @@ export function EditUser() {
                                   label="Nova Senha (opcional)"
                                   error={!!fieldState.error}
                                   errorMessage={fieldState.error?.message}
-                                  value={field.value}
+                                  value={field.value ?? ""}
                                   onChange={field.onChange}
                                   onBlur={field.onBlur}
                                   type={showPassword ? "text" : "password"}
-                                  name="senha"
+                                  name={field.name}
                                 />
                                 <button
                                   type="button"
@@ -388,7 +388,7 @@ export function EditUser() {
                 <FormField
                   control={form.control}
                   name="confirmPassword"
-                  render={({ field }) => (
+                  render={() => (
                     <FormItem>
                       <FormControl>
                         <div className="relative">
@@ -401,11 +401,11 @@ export function EditUser() {
                                   label="Confirmar Nova Senha"
                                   error={!!fieldState.error}
                                   errorMessage={fieldState.error?.message}
-                                  value={field.value}
+                                  value={field.value ?? ""}
                                   onChange={field.onChange}
                                   onBlur={field.onBlur}
                                   type={showConfirmPassword ? "text" : "password"}
-                                  name="confirmPassword"
+                                  name={field.name}
                                 />
                                 <button
                                   type="button"
